@@ -65,14 +65,24 @@ function gameOver() {
     optionButtons.forEach(elem => {
       elem.disabled = true;
     });
-    
+    replay();
   } else if (computerScore === 5) {
     gameWinner.textContent = 'Computer won this game!';
     optionButtons.forEach(elem => {
       elem.disabled = true;
     });
-
+    replay();
   }
+}
+
+function replay() {
+  replayButton = document.createElement('button');
+  replayButton.textContent = 'REPLAY';
+  gameContainer.append(replayButton);
+
+  replayButton.addEventListener('click', () => {
+    location.reload();
+  });
 }
 
 game();
