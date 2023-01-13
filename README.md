@@ -7,6 +7,6 @@ In this game, the player plays against computer.
 
 The computer randomly selects one of the three options.
 
-The player is prompted to input one of the three options.
+The player input one of the three options by clicking a button.
 
 A five round of game is played and a winner is displayed at the end.
