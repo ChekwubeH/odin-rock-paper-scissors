@@ -43,7 +43,10 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  
+
+  optionButtons.forEach(button => button.addEventListener('mouseenter', () => {
+    button.setAttribute('style', 'border:3px solid black');
+  }));
   optionButtons.forEach(button => button.addEventListener('click', () => {
     playerSelection = button.textContent;
     computerSelection = getComputerOption();
@@ -51,25 +54,30 @@ function game() {
     playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
     gameOver();
-  }))
-  
+  }));
+  optionButtons.forEach(button => button.addEventListener('mouseleave', () => {
+    button.setAttribute('style', 'border:none');
+  }));
 }
 
 function gameOver() {
 
   const gameWinner = document.createElement('p');
+  gameWinner.style.color = 'red';
   resultDisplay.append(gameWinner);
 
   if (playerScore === 5) {
-    gameWinner.textContent = 'Player won this game!';
+    gameWinner.textContent = 'PLAYER WON THIS GAME!';
     optionButtons.forEach(elem => {
       elem.disabled = true;
+      elem.setAttribute('style', 'background:lightgrey');
     });
     replay();
   } else if (computerScore === 5) {
-    gameWinner.textContent = 'Computer won this game!';
+    gameWinner.textContent = 'COMPUTER WON THIS GAME!';
     optionButtons.forEach(elem => {
       elem.disabled = true;
+      elem.setAttribute('style', 'background:lightgrey');
     });
     replay();
   }
@@ -78,10 +86,21 @@ function gameOver() {
 function replay() {
   replayButton = document.createElement('button');
   replayButton.textContent = 'REPLAY';
+  replayButton.setAttribute('style', 
+    'background-color:grey; border:none; width:100px; height:30px; border-radius:50px');
   gameContainer.append(replayButton);
+
+  replayButton.addEventListener('mouseenter', () => {
+    replayButton.setAttribute('style', 
+      'background-color:grey; border:3px solid black; width:100px; height:30px; border-radius:50px');
+  });
 
   replayButton.addEventListener('click', () => {
     location.reload();
+  });
+
+  replayButton.addEventListener('mouseleave', () => {
+    replayButton.setAttribute('style', 'border:none');
   });
 }
 
