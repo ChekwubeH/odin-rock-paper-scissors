@@ -1,0 +1,19 @@
+#game-container {
+  border: 5px solid salmon;
+  border-radius: 50px;
+  background-image: repeating-radial-gradient(pink, yellow 10%, lightgreen 15%);
+  padding: 10px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: blue;
+}
+
+.option-button {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 50px;
+  background-color: coral;
+  color: blueviolet;
+  font-weight: bold;
+}
